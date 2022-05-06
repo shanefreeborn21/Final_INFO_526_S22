@@ -1,0 +1,283 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\title{COVID-19 Vaccination Availability by Socio-Economic Status}
+\author{Shane Freeborn - INFO 526}
+\date{}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={COVID-19 Vaccination Availability by Socio-Economic Status},
+  pdfauthor={Shane Freeborn - INFO 526},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\maketitle
+
+\#\#Data Sets
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(usmap)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+\end{verbatim}
+
+\begin{verbatim}
+## v tibble  3.1.6     v dplyr   1.0.7
+## v tidyr   1.1.4     v stringr 1.4.0
+## v readr   2.1.1     v forcats 0.5.1
+## v purrr   0.3.4
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggthemes)}
+
+\NormalTok{county\_vax }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/COVID{-}19\_Vaccinations\_County.csv"}\NormalTok{)}
+\NormalTok{cases\_by\_county\_21 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/us{-}counties{-}2021.csv"}\NormalTok{)}
+\NormalTok{cases\_by\_county\_22 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/us{-}counties{-}2022.csv"}\NormalTok{)}
+\NormalTok{county\_codes }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/county\_fips.csv"}\NormalTok{)}
+\NormalTok{income }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/county\_income.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The data was acquired from multiple sources. The original intent was to
+look at the accessibility of COVID-19 testing sites based on location
+and socioeconomic status to determine if there is a relationship between
+socio-economic status of a region and the number of testing sites.
+However, data on these testing sites is not easily available or
+reliable, so I decided to look at the availability and accessibility of
+COVID-19 vaccines. The vaccination data comes from the CDC. The cases by
+county come from the New York Times live COVID-19 data tracking. A
+supplementary data set was pulled that contains unique county codes that
+identify each county. Finally, income data, which determines the
+socio-economic status of a county, comes from the Census Survey. All
+visuals were created with older data, but new data was pulled closer to
+the submission of this report.
+
+\#\#Data Exploration
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{total\_cases\_by\_state }\OtherTok{\textless{}{-}}\NormalTok{ cases\_by\_county\_21 }\SpecialCharTok{\%\textgreater{}\%}
+  
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{total\_cases =} \FunctionTok{sum}\NormalTok{(cases))}
+
+\FunctionTok{colnames}\NormalTok{(county\_vax)[}\DecValTok{4}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"County"}
+\NormalTok{vax\_by\_county }\OtherTok{\textless{}{-}} \FunctionTok{merge}\NormalTok{(}\AttributeTok{x =}\NormalTok{ county\_vax, }\AttributeTok{y =}\NormalTok{ income, }\AttributeTok{by=} \StringTok{"County"}\NormalTok{)}
+
+\NormalTok{vax\_by\_county }\OtherTok{\textless{}{-}}\NormalTok{ vax\_by\_county }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(County, State, Estimate\_Households\_Median\_income) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{total\_vax =} \FunctionTok{sum}\NormalTok{(Administered\_1dose))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'County', 'State'. You can override using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vax\_by\_county}\SpecialCharTok{$}\NormalTok{incomerange }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(vax\_by\_county}\SpecialCharTok{$}\NormalTok{Estimate\_Households\_Median\_income), }\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{25000}\NormalTok{, }\DecValTok{50000}\NormalTok{, }\DecValTok{75000}\NormalTok{, }\DecValTok{100000}\NormalTok{), }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"$0{-}25k"}\NormalTok{, }\StringTok{"$26{-}50k"}\NormalTok{, }\StringTok{"$51{-}75k"}\NormalTok{, }\StringTok{"$76{-}100k+"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in cut(as.numeric(vax_by_county$Estimate_Households_Median_income), :
+## NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vax\_by\_county }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(vax\_by\_county)}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#Visualizations
+
+First we want to see a broad view of COVID cases in 2021, by state to
+get an idea at which states were impacted most by the pandemic.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot\_usmap}\NormalTok{(}\AttributeTok{data =}\NormalTok{ cases\_by\_county\_21, }\AttributeTok{values =} \StringTok{"cases"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_colorblind}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_continuous}\NormalTok{(}\AttributeTok{name =} \StringTok{"Total COVID{-}19 Cases 2021"}\NormalTok{, }\AttributeTok{label =}\NormalTok{ scales}\SpecialCharTok{::}\NormalTok{comma) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"right"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Scale for 'fill' is already present. Adding another scale for 'fill', which
+## will replace the existing scale.
+\end{verbatim}
+
+\includegraphics{INFO_526_FINAL_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{income }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(State) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{avg\_income =} \FunctionTok{mean}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(Estimate\_Households\_Median\_income))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ avg\_income,}
+             \AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(State, }\SpecialCharTok{{-}}\NormalTok{avg\_income))) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.4}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x=}\FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle=}\DecValTok{45}\NormalTok{, }\AttributeTok{hjust=}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Average Income by State"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"State"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"Average Income by County"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_discrete}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_colorblind}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{scale\_color\_gradient}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in mean(as.numeric(Estimate_Households_Median_income)): NAs introduced
+## by coercion
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 1 rows containing missing values (position_stack).
+\end{verbatim}
+
+\includegraphics{INFO_526_FINAL_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{random\_sample\_data }\OtherTok{\textless{}{-}}\NormalTok{ vax\_by\_county[}\FunctionTok{sample}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(vax\_by\_county), }\DecValTok{20}\NormalTok{), ]}
+\NormalTok{random\_sample\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ County,}
+             \AttributeTok{y =}\NormalTok{ total\_vax,}
+             \AttributeTok{fill =}\NormalTok{ incomerange)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_col}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"County Name"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"Income Range"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Random Sample of County Income vs Vaccinations Administered"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x=}\FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle=}\DecValTok{45}\NormalTok{, }\AttributeTok{hjust=}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_colorblind}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{INFO_526_FINAL_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\#\#Conclusions
+
+We can see that there is not a strong relationship between income and
+vaccinations administered. The accessibility of these vaccinations may
+be impacted by factors such as income and ones ability to get to a
+vaccination site, however it is not the main factor that determines if
+someone can get a vaccination. Measures such as average distance to
+nearest vaccination clinic and how rural a city/county may make income a
+strong predictor, but it is not the only predictor of vaccination
+availability.
+
+\end{document}

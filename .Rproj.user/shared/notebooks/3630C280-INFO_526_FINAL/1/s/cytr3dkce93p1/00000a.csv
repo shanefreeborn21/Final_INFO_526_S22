@@ -1,0 +1,6 @@
+"0","total_cases_by_state <- cases_by_county_21 %>%"
+"0","  "
+"0","  summarise(total_cases = sum(cases))"
+"0",""
+"0","colnames(county_vax)[4] <- ""County"""
+"0","vax_by_county <- merge(x = county_vax, y = income, by= ""County"")"

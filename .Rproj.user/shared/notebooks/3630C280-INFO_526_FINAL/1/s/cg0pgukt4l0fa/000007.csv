@@ -1,0 +1,6 @@
+"0","plot_usmap(data = cases_by_county_21, values = ""cases"") +"
+"0","  scale_fill_colorblind() +"
+"0","  scale_fill_continuous(name = ""Total COVID-19 Cases 2021"", label = scales::comma) +"
+"0","  theme(legend.position = ""right"")"
+"2","Scale for 'fill' is already present. Adding another scale for 'fill', which will replace the existing scale.
+"
